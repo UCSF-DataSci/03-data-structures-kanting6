@@ -1,33 +1,24 @@
 #!/usr/bin/env python3
-"""
-Daily Quote Generator
-
-This script selects a random quote for the day and prints it. Optional: The same quote should be generated for a given day.
-
-Your task:
-1. Complete the get_quote_of_the_day() function
-2. Set up a cron job to run this script daily at 8:00 AM and append the output to a file
-
-Hint: Look up `random.choice()` to select a random item from a list. You can use the `date` module to get the current date and set a seed for the random number generator.
-"""
 
 import random
 from datetime import date
 
 
 quotes = [
-    # Create a list of quotes here
+    "Life is what happens when you're busy making other plans. – John Lennon",
+    "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. – Buddha",
+    "The purpose of life is to live it, to taste experience to the utmost, to reach out eagerly and without fear for newer and richer experience. – Eleanor Roosevelt",
+    "In the end, we only regret the chances we didn’t take. – Lewis Carroll",
+    "Life is 10% what happens to us and 90% how we react to it. – Charles R. Swindoll",
+    "The only impossible journey is the one you never begin. – Tony Robbins",
+    "Life is really simple, but we insist on making it complicated. – Confucius"
 ]
 
 def get_quote_of_the_day(quotes):
     todays_quote = None
-
-    # Your code here
-    
+    today = date.today()
+    todays_quote = random.choice(quotes)
     return todays_quote
 
 if __name__ == "__main__":
     print(get_quote_of_the_day(quotes))
-
-# Cron job (add this to your crontab):
-# 0 8 * * * /usr/bin/python3 /path/to/quote_generator.py >> /path/to/daily_quote.txt
